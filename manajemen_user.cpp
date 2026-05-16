@@ -45,3 +45,46 @@ public:
     }
 };
 
+class admin : public user
+{
+public:
+    static vector<member *> daftarMember;
+
+    admin(string pNama, string pEmail) : user(pNama, pEmail)
+    {
+        cout << "Admin dibuat: " << nama << "\n";
+    }
+
+    void showAllMember()
+    {
+        cout << "\n=== Daftar Semua Member ===\n";
+        if (daftarMember.empty())
+        {
+            cout << "Belum ada member.\n";
+            return;
+        }
+        for (int i = 0; i < daftarMember.size(); i++)
+        {
+            cout << i + 1 << ". "
+                 << daftarMember[i]->nama
+                 << " | Status: " << daftarMember[i]->status
+                 << "\n";
+        }
+    }
+
+    void toggleActivationMember(member *m)
+    {
+        if (m->status == "aktif")
+        {
+            m->status = "nonaktif";
+        }
+        else
+        {
+            m->status = "aktif";
+        }
+        cout << "Status " << m->nama << " diubah menjadi: " << m->status << "\n";
+    }
+};
+
+vector<member *> admin::daftarMember;
+
