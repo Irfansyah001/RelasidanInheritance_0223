@@ -88,3 +88,32 @@ public:
 
 vector<member *> admin::daftarMember;
 
+int main()
+{
+    admin varAdmin("Budi", "budi@email.com");
+
+    member *m1 = new member("Andi", "andi@email.com");
+    member *m2 = new member("Siti", "siti@email.com");
+    member *m3 = new member("Dewi", "dewi@email.com");
+
+    admin::daftarMember.push_back(m1);
+    admin::daftarMember.push_back(m2);
+    admin::daftarMember.push_back(m3);
+
+    varAdmin.showAllMember();
+
+    cout << "\n--- Admin menonaktifkan Siti ---\n";
+    varAdmin.toggleActivationMember(m2);
+
+    varAdmin.showAllMember();
+
+    m1->showProfile();
+    m2->showProfile();
+    m3->showProfile();
+
+    delete m1;
+    delete m2;
+    delete m3;
+
+    return 0;
+}
