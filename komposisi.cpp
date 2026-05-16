@@ -7,5 +7,6 @@ using namespace std;
 
 int main()
 {
-    manusia *vatManusia = new manusia("Markus");
+    manusia *varManusia = new manusia("Markus");
+    delete varManusia;
 }
