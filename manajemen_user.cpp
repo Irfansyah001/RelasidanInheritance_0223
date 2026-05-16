@@ -23,3 +23,25 @@ public:
     }
 };
 
+int user::globalId = 0;
+
+class member : public user
+{
+public:
+    string status;
+
+    member(string pNama, string pEmail) : user(pNama, pEmail), status("aktif")
+    {
+        cout << "Member baru dibuat: " << nama << "\n";
+    }
+
+    void showProfile()
+    {
+        cout << "\n=== Profil Member ===\n";
+        cout << "ID     : " << id << "\n";
+        cout << "Nama   : " << nama << "\n";
+        cout << "Email  : " << email << "\n";
+        cout << "Status : " << status << "\n";
+    }
+};
+
